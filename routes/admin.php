@@ -113,7 +113,18 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::match(['PUT', 'PATCH'], 'contract/{id}', [App\Http\Controllers\Admin\ContractController::class, 'update'])->name('contract.update')->middleware('permission:contract.edit');
         Route::get('contract/{id}/edit', [App\Http\Controllers\Admin\ContractController::class, 'edit'])->name('contract.edit')->middleware('permission:contract.edit');
 
-        //////////////////////////////////////////////////////////////////////
+        ////////////////    ServiceController //////////////////////////////////////////////////////
+
+        Route::delete('service/bulk', [App\Http\Controllers\Admin\ServiceController::class, 'deleteBulk'])->name('service.deleteBulk');
+        Route::get('service/list', [App\Http\Controllers\Admin\ServiceController::class, 'list'])->name('service.list')->middleware('permission:service.view');
+        Route::post('service', [App\Http\Controllers\Admin\ServiceController::class, 'store'])->name('service.store')->middleware('permission:service.create');
+        Route::delete('service/{id}', [App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('service.destroy')->middleware('permission:service.delete');
+        Route::get('service', [App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('service.index')->middleware('permission:service.view');
+        Route::get('service/create', [App\Http\Controllers\Admin\ServiceController::class, 'create'])->name('service.create')->middleware('permission:service.create');
+        Route::match(['PUT', 'PATCH'], 'service/{id}', [App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('service.update')->middleware('permission:service.edit');
+        Route::get('service/{id}/edit', [App\Http\Controllers\Admin\ServiceController::class, 'edit'])->name('service.edit')->middleware('permission:service.edit');
+
+        ///////////////////////////////////////////////////
 
         Route::delete('compain/bulk', [App\Http\Controllers\Admin\CompainController::class, 'deleteBulk'])->name('compain.deleteBulk');
         Route::get('compain/list', [App\Http\Controllers\Admin\CompainController::class, 'list'])->name('compain.list')->middleware('permission:compain.view');

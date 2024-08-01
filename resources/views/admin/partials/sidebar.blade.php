@@ -45,6 +45,15 @@
                 </a>
             </li>
             @endcan
+
+            @can('service.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('service.index') }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('service.plural') }} </span>
+                </a>
+            </li>
+            @endcan
          
          
         
