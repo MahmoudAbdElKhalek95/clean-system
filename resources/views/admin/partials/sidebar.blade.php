@@ -54,6 +54,15 @@
                 </a>
             </li>
             @endcan
+
+            @can('subject.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('subject.index') }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('subject.plural') }} </span>
+                </a>
+            </li>
+            @endcan
          
          
         

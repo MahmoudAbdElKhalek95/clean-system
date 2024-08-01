@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ServiceRequest;
-use App\Models\Service;
-
+use App\Http\Requests\SubjectRequest;
+use App\Models\Subject;
 use App\Traits\UserPermission;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\WhatsappSetting;
-use App\Services\WhatsappService;
 
 class SubjectController extends Controller
 {
@@ -18,63 +16,63 @@ class SubjectController extends Controller
     public function index(Request $request)
     {
         $this->userpermission();
-        return view('admin.pages.service.index', get_defined_vars());
+        return view('admin.pages.subject.index', get_defined_vars());
     }
 
     public function create()
     {
         $this->userpermission();
-        return view('admin.pages.service.create_edit', get_defined_vars());
+        return view('admin.pages.subject.create_edit', get_defined_vars());
     }
 
     public function edit($id)
     {
         $this->userpermission();
-        $item = Service::findOrFail($id);
-        return view('admin.pages.service.create_edit', get_defined_vars());
+        $item = Subject::findOrFail($id);
+        return view('admin.pages.subject.create_edit', get_defined_vars());
     }
 
     public function show($id)
     {
         $this->userpermission();
-        $item = Service::findOrFail($id);
-        return view('admin.pages.service.show', get_defined_vars());
+        $item = Subject::findOrFail($id);
+        return view('admin.pages.subject.show', get_defined_vars());
     }
 
     public function destroy($id)
     {
         $this->userpermission();
-        $item = Service::findOrFail($id);
+        $item = Subject::findOrFail($id);
         if ($item->delete()) {
-            flash(__('service.messages.deleted'))->success();
+            flash(__('subject.messages.deleted'))->success();
         }
-        return redirect()->route('service.index');
+        return redirect()->route('subject.index');
     }
 
-    public function store(ServiceRequest $request)
+    public function store(SubjectRequest $request)
     {
 
        // return $request->all(); 
         $this->userpermission();
         if ($this->processForm($request)) {
-            flash(__('service.messages.created'))->success();
+            flash(__('subject.messages.created'))->success();
         }
-        return redirect()->route('service.index');
+        return redirect()->route('subject.index');
     }
 
-    public function update(ServiceRequest $request, $id)
+    public function update(SubjectRequest $request, $id)
     {
         $this->userpermission();
-        Service::findOrFail($id);
+        Subject::findOrFail($id);
         if ($this->processForm($request, $id)) {
-            flash(__('service.messages.updated'))->success();
+            flash(__('subject.messages.updated'))->success();
         }
-        return redirect()->route('service.index');
+        return redirect()->route('subject.index');
     }
 
     protected function processForm($request, $id = null)
     {
-        $item = $id == null ? new Service() : Service::find($id);
+        $item = $id == null ? new subject() : Subject::find($id);
         $data= $request->except(['_token', '_method']);
         $item = $item->fill($data);
      
@@ -87,7 +85,7 @@ class SubjectController extends Controller
     public function list(Request $request)
     {
 
-        $data = Service::select('*');
+        $data = Subject::select('*');
         return DataTables::of($data)
             ->addIndexColumn()
            // ->rawColumns()
@@ -97,7 +95,7 @@ class SubjectController extends Controller
     public function select(Request $request)
     {
 
-       $data = Service::distinct()
+       $data = Subject::distinct()
             ->where(function ($query) use ($request) {
                 if ($request->filled('q')) {
                     $query->where('name', 'LIKE', '%' . $request->q . '%');
@@ -112,24 +110,24 @@ class SubjectController extends Controller
     {
 
         if ($request->ajax()) {
-            $data = WhatsappSetting::with('service')->where('service_id', $request->service_id)->select('*');
+            $data = WhatsappSetting::with('subject')->where('subject_id', $request->subject_id)->select('*');
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('service', function ($item) {
-                    return $item->service->name ?? '';
+                ->addColumn('subject', function ($item) {
+                    return $item->subject->name ?? '';
                 })
 
-                ->rawColumns(['service'])
+                ->rawColumns(['subject'])
                 ->make(true);
         }
-        $item = Service::findOrFail($id);
-        return view('admin.pages.service.whatssapp', get_defined_vars());
+        $item = Subject::findOrFail($id);
+        return view('admin.pages.subject.whatssapp', get_defined_vars());
 
     }
     public function savewhatsapp(Request $request)
     {
 
-        $whats=WhatsappSetting::where('service_id',$request->service_id)->first();
+        $whats=WhatsappSetting::where('subject_id',$request->subject_id)->first();
         $item = $whats == null ? new WhatsappSetting() : $whats;
         $data= $request->except(['_token', '_method', 'password']);
         $item = $item->fill($data);
