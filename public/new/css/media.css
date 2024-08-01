@@ -1,0 +1,480 @@
+@media (max-width: 350px) {
+
+    .ml-bsm-3px {
+        margin-left: 3px !important;
+    }
+
+    .ml-bsm-10px {
+        margin-left: 10px;
+    }
+
+    .side-menu {
+        width: 250px;
+    }
+}
+
+
+
+@media (max-width: 440px) {
+
+    /************************* control-panel page *************************/
+    .demo-text a {
+        padding: 10px;
+    }
+
+    .demo-text a i {
+        display: block;
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+
+
+}
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+
+    h1 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    h4 {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .mr-sm-5px {
+        margin-right: 5px;
+    }
+
+    .mb-sm-30px {
+        margin-bottom: 30px;
+    }
+
+    .mb-sm-150px {
+        margin-bottom: 150px;
+    }
+
+    .fs-sm-14px {
+        font-size: 14px !important;
+    }
+
+    .fs-sm-15px {
+        font-size: 15px !important;
+    }
+
+    .fs-sm-16px {
+        font-size: 16px !important;
+    }
+
+    .fs-sm-20px {
+        font-size: 20px !important;
+    }
+
+    .pr-sm-15px {
+        padding-right: 15px !important;
+    }
+
+    .pr-sm-20px {
+        padding-right: 20px !important;
+    }
+
+    .pl-sm-15px {
+        padding-left: 15px !important;
+    }
+
+    .pl-sm-20px {
+        padding-left: 20px !important;
+    }
+
+    .width-sm-30 {
+        width: 30%;
+    }
+
+    .width-sm-200px {
+        max-width: 200px;
+    }
+
+    .padding-sm-10px-5px {
+        padding: 10px 5px !important;
+    }
+
+    .height-sm-400px {
+        height: 400px !important;
+    }
+
+    .side-menu .link .link-header button,
+    .side-menu .link .link-header button a{
+        font-size: 13px;
+    }
+
+    .side-menu .link .dropdown-item {
+        font-size: 12px;
+    }
+
+     /*
+    top-area
+    *********************************/
+    .notifications-arrow,
+    .messages-arrow,
+    .user-profile-arrow {
+        border-width: 10px 10px 10px 10px;
+    }
+
+    .notifications-box,
+    .messages-box,
+    .user-profile-box {
+        width: 200px;
+    }
+
+    .notifications-arrow,
+    .messages-arrow {
+        left: -1px;
+        top: 17px;
+    }
+
+    .user-profile-arrow {
+        left: 11px;
+        top: 36px;
+    }
+
+    .notifications-box,
+    .messages-box {
+        left: -15px;
+        top: 36px;
+    }
+
+    .user-profile-box {
+        left: -3px;
+        top: 55px;
+    }
+
+
+    /************************* followup-educational-plan page *************************/
+    .talawah-case .talawah-radio-inputs label:before {
+        right: -30px;
+    }
+
+    /************************* followup-leader-plan page *************************/
+    .selected-week-info table th {
+        font-size: 15px;
+    }
+
+    .selected-week-info table td {
+        font-size: 13px;
+    }
+
+    /************************* adding-educational-plan page *************************/
+    .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered,
+    .select2-container--default .select2-results__option {
+        font-size: 12px !important;
+    }
+
+    .talawah-plan .talawah-bg {
+        width: 90%;
+        left: 5%;
+    }
+
+    .save-plan-cont span.save-dot-place,
+    .revision-plan-cont span.revision-dot-place {
+        top: 5px;
+        right: 40px;
+    }
+
+    .save-plan-cont span.save-dot,
+    .revision-plan-cont span.revision-dot {
+        top: 10px;
+        right: 45px;
+    }
+
+    .save-plan-cont span.save-dot.active,
+    .revision-plan-cont span.revision-dot.active {
+        top: 10px;
+        right: 58px;
+    }
+
+    /************************* project-details page *************************/
+    .project-tabs .tab h4 {
+        font-size: 14px;
+    }
+
+    /************************* control-panel page *************************/
+    .announcements-box {
+        margin: 70px auto 0;
+    }
+
+    .daily-statistics .right-announcement,
+    .daily-statistics .left-announcement {
+        position: static;
+        display: block;
+    }
+
+    .daily-statistics .right-announcement {
+        margin-bottom: 40px;
+    }
+
+    .calendar-box {
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .calendar {
+        width: 524px;
+    }
+
+    .month p, .weekdays div, .days div {
+        font-size: 16px;
+    }
+
+
+}
+
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .mb-md-to-sm-30px {
+        margin-bottom: 30px;
+    }
+
+    .width-md-to-sm-100 {
+        width: 100%;
+    }
+
+
+    /************************* adding-educational-plan page *************************/
+    .talawah-plan .talawah-bg {
+        width: 80%;
+        left: 10%;
+    }
+    .revision-plan-cont .revision-bg,
+    .save-plan-cont .save-bg {
+        left: 27px;
+    }
+
+    .save-plan-cont span.save-dot-place,
+    .revision-plan-cont span.revision-dot-place {
+        top: 5px;
+        right: 85px;
+    }
+
+    .save-plan-cont span.save-dot,
+    .revision-plan-cont span.revision-dot {
+        top: 10px;
+        right: 90px;
+    }
+
+    .save-plan-cont span.save-dot.active,
+    .revision-plan-cont span.revision-dot.active {
+        top: 10px;
+        right: 103px;
+    }
+
+    /************************* control-panel page *************************/
+    .announcements-box {
+        margin: 70px auto 0;
+    }
+
+    .daily-statistics .right-announcement,
+    .daily-statistics .left-announcement {
+        position: static;
+        display: inline-block;
+    }
+
+    .daily-statistics .right-announcement {
+        margin-left: 40px;
+    }
+
+}
+
+
+
+/* Medium devices (tablets, 768px and up)  */
+@media (max-width: 767.98px) {
+
+    .mb-md-15px {
+        margin-bottom: 15px;
+    }
+
+    .mb-md-20px {
+        margin-bottom: 20px;
+    }
+
+    .mb-md-30px {
+        margin-bottom: 30px;
+    }
+
+    .mb-md-50px {
+        margin-bottom: 50px;
+    }
+
+    .mb-md-100px {
+        margin-bottom: 100px;
+    }
+
+    .mt-md-340px {
+        margin-top: 340px;
+    }
+
+    .mr-md-33 {
+        margin-right: 33%;
+    }
+
+    .width-md-100 {
+        width: 100% !important;
+    }
+
+    .max-width-md-540px {
+        max-width: 540px;
+
+    }
+
+    /************************* adding-leader-plan page *************************/
+    .new-row .plus-minus-new {
+        bottom: 19px;
+    }
+
+    /************************* followup-leader-plan page *************************/
+    .selected-week-info .table-box {
+        overflow-x: scroll;
+    }
+
+
+}
+
+
+
+/* Large devices (desktops, 992px and up)  */
+@media (min-width: 768px) and (max-width: 991.98px){
+
+    .width-lg-to-md-50 {
+        width: 50% !important;
+    }
+
+    .width-lg-to-md-65 {
+        width: 65% !important;
+    }
+
+    .width-lg-to-md-90 {
+        width: 90%;
+    }
+
+    /************************* adding-educational-plan page *************************/
+    .talawah-plan .talawah-bg {
+        width: 60%;
+        left: 20%;
+    }
+
+    .revision-plan-cont .revision-bg,
+    .save-plan-cont .save-bg {
+        left: 19px;
+    }
+
+    .save-plan-cont span.save-dot-place,
+    .revision-plan-cont span.revision-dot-place {
+        top: 5px;
+        right: 5px;
+    }
+
+    .save-plan-cont span.save-dot,
+    .revision-plan-cont span.revision-dot {
+        top: 10px;
+        right: 10px;
+    }
+
+    .save-plan-cont span.save-dot.active,
+    .revision-plan-cont span.revision-dot.active {
+        top: 10px;
+        right: 23px;
+    }
+
+    /************************* control-panel page *************************/
+    .daily-statistics .right-announcement,
+    .daily-statistics .left-announcement {
+        padding: 50px 20px 120px;
+    }
+
+
+}
+
+
+
+/* Large devices (desktops, 992px and up)  */
+@media (max-width: 991.98px){
+
+    .mb-lg-20px {
+        margin-bottom: 20px;
+    }
+
+    .position-lg-static {
+        position: static;
+    }
+
+    .width-lg-50 {
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /*
+        top-area
+    *********************************/
+    .top-area {
+        background-size: contain;
+    }
+
+    /************************* followup-leader-plan page *************************/
+    td .radio-inputs div:last-child label {
+        margin-right: 0;
+    }
+
+    /************************* project-details page *************************/
+    .tasks .table-box {
+        overflow-x: scroll;
+    }
+
+    /************************* tasks page *************************/
+    .tasks-table .table-box {
+        overflow-x: scroll;
+    }
+
+    /************************* control-panel page *************************/
+    .demo-text .announcement {
+        position: relative;
+        top: 130px;
+        left: 0;
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+}
+
+
+
+/* Extra large devices (large desktops, 1199.98px and up)  */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    /************************* adding-educational-plan page *************************/
+    .revision-plan-cont .revision-bg,
+    .save-plan-cont .save-bg {
+        left: 25px;
+    }
+
+}

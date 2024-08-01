@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "amazing-office-236814",
+  "private_key_id": "bf9426acc8a7dd94168340a662515bcf2f0ba9d2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFzPWFFrScIUGD\n2GNy6SBTjbK2S5oaTFiS+NmWtE+0NWXYyA7hkoGRcGrImGwHRPV2VglTuonnJzU+\nY2PsRO3D1JcrqHMyUB1Aqvs/SGKv+IEnyK21qOcapHLuHIzRTVlo66ZmbOsOr59e\nGMo+32pPGRHyAqDwtc+eil4gCDkGmKYZI0dT/7W8HF92+nE1NnZsHlU6TTDA/zO+\n5VtnDgVn4pGuLqLNfa1XvGBe1xLfz7u7RUJNbcX3HqrcrhPXDSlfUChZDhOtHseJ\nIdxzK0BrZQV0wvCbQRtTK03pdwc4x07y8mtqxhbhNW17dnbNTkip9bA7dzcYTQGt\nuKz9QZ5HAgMBAAECggEAJwa16HDe6LEtDnjqwjjZ7nJWMN6AxLCMh07/C1t/IFSq\nyBdMzFfOJaZzAyoDonmKHrOB+pmi7M8RE8Kja/H7oXg37V66f9JLuz8g/E7pXcPf\no7xV/bIaCukoXe+XHxKuUeOwvKO/yvF+tZ+Zg8cr3/hX0JKRM30DvkmZoaNNsQ2j\nTDJRdjC3QJ0hHNaDuOqmuaILAgZW2pn/qbHA9PZWAJYDCnt5D3cbn6pmZwRveVCx\n0irlCjkZEzGXmpw/RSVAP7Iz3ZCKdpunO5ErN6n3c2M3J8gxrO/EsE+xLBwJ907g\ncny7raFaK/0OM9F172XBzncj44ComxaWg+625IWtmQKBgQDsZ/kqJ6clxEp9YSqO\nBjROH5H1Os8PMs99BeQleONb+d7OHvjEND0DGhXvSQTqsOFUmmn/3vBUBHf/zBDP\ns6e9xGRYDMpuTkBSq0DpZPTBTWkr24bBqTChAusguG2aftKxCtNkRJ+Fai3KKVDa\nF6PPlqIhgH/ZlLWSghPO2q3SiQKBgQDWMdwvb9WWvg0a1lYv34V3QiETfJmprcRx\nMBAERbVRoupC6UCMvpGbpOguHp/ZnAF+1uBdAh9CaB689VrvULGlMvO92cNz0Beg\nd8B8F3wTK6vBdvUjeE6NashWsUFfb1lsiGdJtAYLNPqMMHJ+RdUOAzi+a9eOspkx\nufz5E172TwKBgQDHaCxT0n667Ieomn06ryEPhLGpGKHvP/ykiIOY2A9vVaUKWDWd\nyjJsm2RFImJzVB+9LUKcAYDWXa6apZbIm9Gx0CaT3rYhtP+su6dVN0L8ij9cLx/L\n2tqZ9cw/HVHWL4Oosmj8+qVT8+wLyi3YyHf0cirv92PgM/+0RORQZ0SXgQKBgEzS\nSydUU+Whui+C6hx3bXXtaNGFYdNieE8kLsppefOSm7Rt1fHks3KAPam04B36/upQ\nBN420aFOmJ+q2/dzGJOoZ5US0i/qVV7/NDENdzmk8xALKzaSgpHj14CISGsDE66C\naZEcmQJR+P5ordeuEhDZhPN+2Cvc0GbuTtXCZc+vAoGBAL/GE+b58gDWGmOaJLG+\n8sSlWyVxkAdLgKiDbVlSiyn+kvr1PQzQOpsgBN+v/PYJoeDZuypSo95/4vZ3Gowh\nZr0Je3A9dOSal+jiE1IDmToYsmHf4yEvBq7jdvMbEgUya3PHtkWgKIksCWFIatet\nRw+IFJaviyPz7BdHp1Hk5jqn\n-----END PRIVATE KEY-----\n",
+  "client_email": "analytics@amazing-office-236814.iam.gserviceaccount.com",
+  "client_id": "101976352766541281051",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/analytics%40amazing-office-236814.iam.gserviceaccount.com"
+}
