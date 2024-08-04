@@ -11,4 +11,15 @@ class School extends Model
 
     protected $table = "schools";
     protected $guarded = [] ;
+
+    public function manager()
+    {
+        return $this->belongsTo( User::class , 'manager_name' , 'id') ;
+    }
+    
 }
+
+
+
+
+

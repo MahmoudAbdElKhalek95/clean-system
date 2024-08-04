@@ -765,3 +765,46 @@ function get_statistics_percent($category_id)
 
 
 }
+
+
+
+
+function send_whatsapp_message( $phone , $message  )
+{
+
+
+   ////  $phone = "+966".$item->phone ;
+     $phone = "+201018925998" ;
+  //  $message = " helloe mahmoud this test message " ;
+
+ //  $phone = intval(formate_phone_number($phone)) ;
+
+
+  $url =    "https://api.ultramsg.com/instance17697/messages/chat?token=klzmj5y2hftzk2m0&to=$phone&body=$message&priority=10" ;
+
+ //  $url =  "https://api.ultramsg.com/instance17697/messages/chat?token=klzmj5y2hftzk2m0&to=+$phone&body=$message&priority=10";
+
+    ///////////////////////// smss ///
+
+  $ch = curl_init();
+  $user_agent='Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0';
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch, CURLOPT_AUTOREFERER, false);
+  curl_setopt($ch, CURLOPT_VERBOSE, 1);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_SSLVERSION,CURL_SSLVERSION_DEFAULT);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  $webcontent= curl_exec ($ch);
+  $error = curl_error($ch);
+  curl_close ($ch);
+
+
+  return  true  ;
+
+
+}
+

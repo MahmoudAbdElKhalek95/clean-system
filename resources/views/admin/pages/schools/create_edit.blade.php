@@ -106,9 +106,23 @@
                         </div>
 
                       
-                        <div class="mb-1 col-md-4  @error('manager_name') is-invalid @enderror">
+                        {{--  <div class="mb-1 col-md-4  @error('manager_name') is-invalid @enderror">
                             <label class="form-label">{{ __('school.manager_name') }}</label>
                             <input class="form-control" name="manager_name" type="text" value="{{ $item->manager_name ?? old('manager_name') }}">
+                            @error('manager_name')
+                            <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>  --}}
+
+                        <div class="mb-1 col-md-4  @error('manager_name') is-invalid @enderror">
+                            <label class="form-label" for="manager_name">{{ __('school.manager_name') }}</label>
+                            <select name="manager_name"  class="form-control ajax_select2 extra_field"
+                                    data-ajax--url="{{ route('users.selectClient') }}"
+                                    data-ajax--cache="true"  required >
+                                @isset($item->manager)
+                                    <option value="{{ $item->manager->id }}" selected>{{ $item->manager->name }}</option>
+                                @endisset
+                            </select>
                             @error('manager_name')
                             <span class="error">{{ $message }}</span>
                             @enderror

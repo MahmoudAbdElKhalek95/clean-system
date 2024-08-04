@@ -63,6 +63,34 @@
                 </a>
             </li>
             @endcan
+
+            @can('visit.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('visit.index') }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('visit.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+
+            @can('visit_details.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('visit_details.index'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('visit_details.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+
+            @can('rate.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('rate.index'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('rate.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+         
          
          
         

@@ -2,6 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+      ////////////////////   rate ////////////////////////////////
+      Route::get('rate/select', [App\Http\Controllers\Admin\RateController::class, 'select'])->name('rate.select');
+      Route::delete('rate/bulk', [App\Http\Controllers\Admin\RateController::class, 'deleteBulk'])->name('rate.deleteBulk');
+      Route::get('rate/list', [App\Http\Controllers\Admin\RateController::class, 'list'])->name('rate.list');
+      Route::post('rate', [App\Http\Controllers\Admin\RateController::class, 'store'])->name('rate.store');
+      Route::delete('rate/{id}', [App\Http\Controllers\Admin\RateController::class, 'destroy'])->name('rate.destroy');
+      Route::get('rate', [App\Http\Controllers\Admin\RateController::class, 'index'])->name('rate.index');
+      Route::get('rate/create', [App\Http\Controllers\Admin\RateController::class, 'create'])->name('rate.create');
+      Route::match(['PUT', 'PATCH'], 'rate/{id}', [App\Http\Controllers\Admin\RateController::class, 'update'])->name('rate.update');
+      Route::get('rate/{id}/edit', [App\Http\Controllers\Admin\RateController::class, 'edit'])->name('rate.edit');
+
 Route::middleware('throttle:60,1')->group(function () {
     Route::get('admin/login', [App\Http\Controllers\Admin\AuthController::class, 'adminlogin'])->name('admin.login');
     Route::get('login', [App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login');
@@ -93,6 +104,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('categories/{id}/edit', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('categories.edit')->middleware('permission:categories.edit');
 
         ////////////////////////// school 
+        Route::get('school/select', [App\Http\Controllers\Admin\SchoolController::class, 'select'])->name('school.select');
         Route::delete('school/bulk', [App\Http\Controllers\Admin\SchoolController::class, 'deleteBulk'])->name('school.deleteBulk');
         Route::get('school/list', [App\Http\Controllers\Admin\SchoolController::class, 'list'])->name('school.list')->middleware('permission:school.view');
         Route::post('school', [App\Http\Controllers\Admin\SchoolController::class, 'store'])->name('school.store')->middleware('permission:school.create');
@@ -103,7 +115,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('school/{id}/edit', [App\Http\Controllers\Admin\SchoolController::class, 'edit'])->name('school.edit')->middleware('permission:school.edit');
 
         ////////////////  contract ////////////////////////
-
+        Route::get('contract/select', [App\Http\Controllers\Admin\ContractController::class, 'select'])->name('contract.select');
         Route::delete('contract/bulk', [App\Http\Controllers\Admin\ContractController::class, 'deleteBulk'])->name('contract.deleteBulk');
         Route::get('contract/list', [App\Http\Controllers\Admin\ContractController::class, 'list'])->name('contract.list')->middleware('permission:contract.view');
         Route::post('contract', [App\Http\Controllers\Admin\ContractController::class, 'store'])->name('contract.store')->middleware('permission:contract.create');
@@ -114,7 +126,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('contract/{id}/edit', [App\Http\Controllers\Admin\ContractController::class, 'edit'])->name('contract.edit')->middleware('permission:contract.edit');
 
         ////////////////    ServiceController //////////////////////////////////////////////////////
-
+        Route::get('service/select', [App\Http\Controllers\Admin\ServiceController::class, 'select'])->name('service.select');
         Route::delete('service/bulk', [App\Http\Controllers\Admin\ServiceController::class, 'deleteBulk'])->name('service.deleteBulk');
         Route::get('service/list', [App\Http\Controllers\Admin\ServiceController::class, 'list'])->name('service.list')->middleware('permission:service.view');
         Route::post('service', [App\Http\Controllers\Admin\ServiceController::class, 'store'])->name('service.store')->middleware('permission:service.create');
@@ -125,7 +137,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('service/{id}/edit', [App\Http\Controllers\Admin\ServiceController::class, 'edit'])->name('service.edit')->middleware('permission:service.edit');
 
         ////////////////////  SubjectController ///////////////////////////////
-
+        Route::get('subject/select', [App\Http\Controllers\Admin\SubjectController::class, 'select'])->name('subject.select');
         Route::delete('subject/bulk', [App\Http\Controllers\Admin\SubjectController::class, 'deleteBulk'])->name('subject.deleteBulk');
         Route::get('subject/list', [App\Http\Controllers\Admin\SubjectController::class, 'list'])->name('subject.list')->middleware('permission:subject.view');
         Route::post('subject', [App\Http\Controllers\Admin\SubjectController::class, 'store'])->name('subject.store')->middleware('permission:subject.create');
@@ -135,8 +147,32 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::match(['PUT', 'PATCH'], 'subject/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'update'])->name('subject.update')->middleware('permission:subject.edit');
         Route::get('subject/{id}/edit', [App\Http\Controllers\Admin\SubjectController::class, 'edit'])->name('subject.edit')->middleware('permission:subject.edit');
 
+        ////////////////////   visit ////////////////////////////////
+        Route::get('visit/select', [App\Http\Controllers\Admin\VisitController::class, 'select'])->name('visit.select');
+        Route::delete('visit/bulk', [App\Http\Controllers\Admin\VisitController::class, 'deleteBulk'])->name('visit.deleteBulk');
+        Route::get('visit/list', [App\Http\Controllers\Admin\VisitController::class, 'list'])->name('visit.list')->middleware('permission:visit.view');
+        Route::post('visit', [App\Http\Controllers\Admin\VisitController::class, 'store'])->name('visit.store')->middleware('permission:visit.create');
+        Route::delete('visit/{id}', [App\Http\Controllers\Admin\VisitController::class, 'destroy'])->name('visit.destroy')->middleware('permission:visit.delete');
+        Route::get('visit', [App\Http\Controllers\Admin\VisitController::class, 'index'])->name('visit.index')->middleware('permission:visit.view');
+        Route::get('visit/create', [App\Http\Controllers\Admin\VisitController::class, 'create'])->name('visit.create')->middleware('permission:visit.create');
+        Route::match(['PUT', 'PATCH'], 'visit/{id}', [App\Http\Controllers\Admin\VisitController::class, 'update'])->name('visit.update')->middleware('permission:visit.edit');
+        Route::get('visit/{id}/edit', [App\Http\Controllers\Admin\VisitController::class, 'edit'])->name('visit.edit')->middleware('permission:visit.edit');
+       
+        /////////////////////  visit_details /////////////////////////////////
 
-        ////////////////////////////////////////////////////
+        Route::delete('visit_details/bulk', [App\Http\Controllers\Admin\VisitDetailsController::class, 'deleteBulk'])->name('visit_details.deleteBulk');
+        Route::get('visit_details/list', [App\Http\Controllers\Admin\VisitDetailsController::class, 'list'])->name('visit_details.list')->middleware('permission:visit_details.view');
+        Route::post('visit_details', [App\Http\Controllers\Admin\VisitDetailsController::class, 'store'])->name('visit_details.store')->middleware('permission:visit_details.create');
+        Route::delete('visit_details/{id}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'destroy'])->name('visit_details.destroy')->middleware('permission:visit_details.delete');
+        Route::get('visit_details', [App\Http\Controllers\Admin\VisitDetailsController::class, 'index'])->name('visit_details.index')->middleware('permission:visit_details.view');
+        Route::get('visit_details/create', [App\Http\Controllers\Admin\VisitDetailsController::class, 'create'])->name('visit_details.create')->middleware('permission:visit_details.create');
+        Route::match(['PUT', 'PATCH'], 'visit_details/{id}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'update'])->name('visit_details.update')->middleware('permission:visit_details.edit');
+        Route::get('visit_details/{id}/edit', [App\Http\Controllers\Admin\VisitDetailsController::class, 'edit'])->name('visit_details.edit')->middleware('permission:visit_details.edit');
+       
+
+    
+
+        ///////////////////////////////////////////////////////////////////
         Route::delete('compain/bulk', [App\Http\Controllers\Admin\CompainController::class, 'deleteBulk'])->name('compain.deleteBulk');
         Route::get('compain/list', [App\Http\Controllers\Admin\CompainController::class, 'list'])->name('compain.list')->middleware('permission:compain.view');
         Route::post('compain', [App\Http\Controllers\Admin\CompainController::class, 'store'])->name('compain.store')->middleware('permission:compain.create');

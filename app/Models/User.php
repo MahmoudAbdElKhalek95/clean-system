@@ -17,7 +17,7 @@ class User extends Authenticatable
     use HasRoles;
 
     protected $table = 'users';
-    protected $fillable = ['first_name','mid_name','last_name', 'phone', 'email',  'type','reset_code','password','code','vip','target_type_id','target_amount'];
+    protected $fillable = [ 'name' ,'first_name','mid_name','last_name', 'phone', 'email',  'type','reset_code','password','code','vip','target_type_id','target_amount'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -38,11 +38,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['name'];
+   // protected $appends = ['name'];
 
     public const TYPE_ADMIN = 1;
 
+    public const TYPE_Supervisor = 2;
     public const TYPE_CLIENT = 2;
+
 
     public const TYPE_RESPONSIBLE = 3;
 
@@ -79,10 +81,11 @@ class User extends Authenticatable
         return $this->belongsToMany(ClientUser::class, 'client_users','client_id','user_id');
     }
 
-    public function getNameAttribute()
+  /*  public function getNameAttribute()
     {
         return ($this->attributes['first_name'] ?? '' ).' '.($this->attributes['mid_name']??'').' '.($this->attributes['last_name']??'');
     }
+        */
     public function targetType(){
         return $this->belongsTo(TargetType::class, 'target_type_id');
     }

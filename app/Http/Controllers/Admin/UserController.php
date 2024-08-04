@@ -140,11 +140,11 @@ class UserController extends Controller
         $data = User::distinct()
              ->where(function ($query) use ($request) {
                  if ($request->filled('q')) {
-                     $query->where('first_name', 'LIKE', '%' . $request->q . '%');
+                     $query->where('name', 'LIKE', '%' . $request->q . '%');
                  }
-             })->where('type', User::TYPE_CLIENT)
-             ->select('id', DB::raw("CONCAT(COALESCE(first_name,''),' ',COALESCE(mid_name,''),' ',COALESCE(last_name,'')) AS text"))
-             ->take(10)
+             })->where('type', User::TYPE_Supervisor)
+             ->select('id', 'name as text')
+              ->take(10)
              ->get();
         return response()->json($data);
     }
