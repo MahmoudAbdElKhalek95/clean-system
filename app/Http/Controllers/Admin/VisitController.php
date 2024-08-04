@@ -16,6 +16,9 @@ class VisitController extends Controller
     public function index(Request $request)
     {
 
+
+       // return  "<a class='btn btn-success'  href ='".route('visit_details.index' , 1 )."'>تفاصيل الزيارات </a> " ;
+
        // return Visit::with('user')->first() ;
         $this->userpermission();
         return view('admin.pages.visit.index', get_defined_vars());
@@ -94,16 +97,12 @@ class VisitController extends Controller
             ->AddColumn('user', function ($item) {
                 return $item->user ? $item->user->name : '';
             })
-           /* ->AddColumn('vist_details', function ($item) {
+            ->AddColumn('buttun', function ($item) {
              
-               // $link = "<a href='{{route("visit_details", $item->id  ) }}>" ;
-               $link = "<a class='btn btn-success'  href ='{{route('visit_details.index' , $item->id )}}'>{{ __('visit_details.plural') }} </a> " ;
+                return  "<a class='btn btn-success'  href ='".route('visit_details.index' , $item->id )."'>تفاصيل الزيارات </a> " ;
 
-               return $link ;
-
-
-            })*/
-            ->rawColumns(['user' ])
+            })
+            ->rawColumns(['buttun' , 'user'])
             ->make(true);
     }
 

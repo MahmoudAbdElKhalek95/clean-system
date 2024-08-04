@@ -161,11 +161,11 @@ Route::middleware('throttle:60,1')->group(function () {
         /////////////////////  visit_details /////////////////////////////////
 
         Route::delete('visit_details/bulk', [App\Http\Controllers\Admin\VisitDetailsController::class, 'deleteBulk'])->name('visit_details.deleteBulk');
-        Route::get('visit_details/list', [App\Http\Controllers\Admin\VisitDetailsController::class, 'list'])->name('visit_details.list')->middleware('permission:visit_details.view');
+        Route::get('visit_details/list/{visit_id?}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'list'])->name('visit_details.list')->middleware('permission:visit_details.view');
         Route::post('visit_details', [App\Http\Controllers\Admin\VisitDetailsController::class, 'store'])->name('visit_details.store')->middleware('permission:visit_details.create');
         Route::delete('visit_details/{id}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'destroy'])->name('visit_details.destroy')->middleware('permission:visit_details.delete');
-        Route::get('visit_details', [App\Http\Controllers\Admin\VisitDetailsController::class, 'index'])->name('visit_details.index')->middleware('permission:visit_details.view');
-        Route::get('visit_details/create', [App\Http\Controllers\Admin\VisitDetailsController::class, 'create'])->name('visit_details.create')->middleware('permission:visit_details.create');
+        Route::get('visit_details/{id?}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'index'])->name('visit_details.index')->middleware('permission:visit_details.view');
+        Route::get('visit_details/create/{visit_id?}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'create'])->name('visit_details.create')->middleware('permission:visit_details.create');
         Route::match(['PUT', 'PATCH'], 'visit_details/{id}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'update'])->name('visit_details.update')->middleware('permission:visit_details.edit');
         Route::get('visit_details/{id}/edit', [App\Http\Controllers\Admin\VisitDetailsController::class, 'edit'])->name('visit_details.edit')->middleware('permission:visit_details.edit');
        

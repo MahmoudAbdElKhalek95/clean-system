@@ -14,20 +14,32 @@ use App\Models\WhatsappSetting;
 class VisitDetailsController extends Controller
 {
     use UserPermission;
-    public function index(Request $request  )
+    public function index(Request $request , $visit_id = null   )
     {
 
       // return  $rate_link = route('rate.create')."?manager_id=1."&super_id=".2."&visit_detail_id=".1;
 
 
        // return VisitDetail::with('user')->first() ;
-       // $visit = Visit::find(  $visit_id) ;
+       if( $visit_id != null )
+       {
+          $visit = Visit::find(  $visit_id) ;
+       }else{
+        $visit = null ;
+       }
+      // return $visit ;
         $this->userpermission();
         return view('admin.pages.visit_details.index', get_defined_vars());
     }
 
-    public function create()
+    public function create(  $visit_id = null  )
     {
+        if( $visit_id != null )
+        {
+           $visit = Visit::find(  $visit_id) ;
+        }else{
+         $visit = null ;
+        }
         $this->userpermission();
         return view('admin.pages.visit_details.create_edit', get_defined_vars());
     }
@@ -68,7 +80,7 @@ class VisitDetailsController extends Controller
         if ($this->processForm($request)) {
             flash(__('visit_details.messages.created'))->success();
         }
-        return redirect()->route('visit_details.index');
+        return redirect()->route('visit_details.index' , $request->visit_id );
     }
 
     public function update(VisitDetailRequest $request, $id)
@@ -78,7 +90,7 @@ class VisitDetailsController extends Controller
         if ($this->processForm($request, $id)) {
             flash(__('visit_details.messages.updated'))->success();
         }
-        return redirect()->route('visit_details.index');
+        return redirect()->route('visit_details.index' , $request->visit_id );
     }
 
     protected function processForm($request, $id = null)
@@ -95,8 +107,7 @@ class VisitDetailsController extends Controller
 
         if ($item->save()) {
           
-            if(  $id == null   )
-            {
+         
     
     
                $manager_id =  $item->school->manager->id ;
@@ -120,7 +131,7 @@ class VisitDetailsController extends Controller
                 send_whatsapp_message( $phone ,     $message   ) ;
      
              
-            }
+            
         
             return $item;
         }
@@ -132,11 +143,21 @@ class VisitDetailsController extends Controller
         return null;
     }
 
-    public function list(Request $request   )
+    public function list(Request $request  , $visit_id = null   )
     {
 
+        if( $visit_id != null )
+        {
+          //  return  "done" ; 
+           $visit = Visit::find(  $visit_id) ;
+           $data = VisitDetail::with('user')->where('visit_id' ,   $visit_id )->select('*');
+        }else{
+          //  return  "nnno" ;
+         $visit = null ;
+         $data = VisitDetail::with('user')->select('*');
+        }
       
-        $data = VisitDetail::with('user')->select('*');
+       // $data = VisitDetail::with('user')->select('*');
         return DataTables::of($data)
             ->addIndexColumn()
             ->AddColumn('user', function ($item) {

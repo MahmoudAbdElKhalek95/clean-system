@@ -17,7 +17,7 @@
         <div class="content-header-right text-md-end col-md-6 col-12 d-md-block ">
             <div class="mb-1 breadcrumb-right">
                 <div class="dropdown">
-                    <a class="btn btn-sm btn-outline-primary me-1 waves-effect" href="{{ route('visit_details.create') }}">
+                    <a class="btn btn-sm btn-outline-primary me-1 waves-effect" href="{{ route('visit_details.create' ,  $visit->id ) }}">
                         <i data-feather="plus"></i>
                         <span class="active-sorting text-primary">{{ __('visit_details.actions.create') }}</span>
                     </a>
@@ -32,7 +32,7 @@
                     <thead>
                     <tr>
                         <th>{{ __('visit_details.supervisior_name') }}</th>
-                        <th>{{ __('visit_details.visit_id') }}</th>
+                        {{--  <th>{{ __('visit_details.visit_id') }}</th>  --}}
                         <th>{{ __('visit_details.school_id') }}</th>
                         <th>{{ __('visit_details.day') }}</th>
                         <th>{{ __('visit_details.date') }}</th>
@@ -66,7 +66,7 @@
                 }
             },
             ajax: {
-                url: "{{ route('visit_details.list'  ) }}",
+                url: "{{ route('visit_details.list' , $visit->id ) }}",
                 data: function (d) {
                     d.name   = $('#filterForm #name').val();
                 }
@@ -77,7 +77,7 @@
             columns: [
                 /*{data: 'DT_RowIndex', name: 'DT_RowIndex'},*/
                 {data: 'user', name: 'user' ,orderable: false },
-                {data: 'visit', name: 'visit' , orderable: false },
+             /*   {data: 'visit', name: 'visit' , orderable: false },*/
                 {data: 'school', name: 'school' ,orderable: false },
                 {data: 'day', name: 'day'  },
                 {data: 'date', name: 'date'  },

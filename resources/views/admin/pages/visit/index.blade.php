@@ -33,6 +33,8 @@
                     <tr>
                         <th>{{ __('visit.supervisior_name') }}</th>
                         <th>{{ __('visit.visit_number') }}</th>
+                        <th>{{ __('visit_details.plural') }}</th>
+
 
                         <th width="15%" class="text-center">{{ __('visit.options') }}</th>
                     </tr>
@@ -73,7 +75,7 @@
                 /*{data: 'DT_RowIndex', name: 'DT_RowIndex'},*/
                 {data: 'user', name: 'user' ,orderable: false },
                 {data: 'visit_number', name: 'visit_number'},
-               /* {data: 'vist_details', name: 'vist_details' },*/
+                {data: 'buttun', name: 'buttun' },
 
                 {data: 'actions',name: 'actions',orderable: false,searchable: false},
             ],

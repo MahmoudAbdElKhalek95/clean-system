@@ -33,7 +33,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <input type="hidden" name="visit_id" value="1">
+                        <input type="hidden" name="visit_id" value="{{ $visit->id ?? null  }}">
                      
                         <div class="mb-1 col-md-4  @error('user_id') is-invalid @enderror">
                             <label class="form-label" for="user_id">{{ __('visit_details.supervisior_name') }}</label>
