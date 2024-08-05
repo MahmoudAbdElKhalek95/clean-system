@@ -148,6 +148,8 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('subject/{id}/edit', [App\Http\Controllers\Admin\SubjectController::class, 'edit'])->name('subject.edit')->middleware('permission:subject.edit');
 
         ////////////////////   visit ////////////////////////////////
+        
+        Route::get('supervisor_report', [App\Http\Controllers\Admin\VisitController::class, 'supervisor_visit_report'])->name('visit.report');
         Route::get('visit/select', [App\Http\Controllers\Admin\VisitController::class, 'select'])->name('visit.select');
         Route::delete('visit/bulk', [App\Http\Controllers\Admin\VisitController::class, 'deleteBulk'])->name('visit.deleteBulk');
         Route::get('visit/list', [App\Http\Controllers\Admin\VisitController::class, 'list'])->name('visit.list')->middleware('permission:visit.view');
@@ -169,10 +171,29 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::match(['PUT', 'PATCH'], 'visit_details/{id}', [App\Http\Controllers\Admin\VisitDetailsController::class, 'update'])->name('visit_details.update')->middleware('permission:visit_details.edit');
         Route::get('visit_details/{id}/edit', [App\Http\Controllers\Admin\VisitDetailsController::class, 'edit'])->name('visit_details.edit')->middleware('permission:visit_details.edit');
        
+        /////////////////////////////////////// workers   ////////////////////////////
+        Route::get('workers/select', [App\Http\Controllers\Admin\WorkerController::class, 'select'])->name('workers.select');
+        Route::delete('workers/bulk', [App\Http\Controllers\Admin\WorkerController::class, 'deleteBulk'])->name('workers.deleteBulk');
+        Route::get('workers/list', [App\Http\Controllers\Admin\WorkerController::class, 'list'])->name('workers.list')->middleware('permission:workers.view');
+        Route::post('workers', [App\Http\Controllers\Admin\WorkerController::class, 'store'])->name('workers.store')->middleware('permission:workers.create');
+        Route::delete('workers/{id}', [App\Http\Controllers\Admin\WorkerController::class, 'destroy'])->name('workers.destroy')->middleware('permission:workers.delete');
+        Route::get('workers', [App\Http\Controllers\Admin\WorkerController::class, 'index'])->name('workers.index')->middleware('permission:workers.view');
+        Route::get('worker/create', [App\Http\Controllers\Admin\WorkerController::class, 'create'])->name('worker.create')->middleware('permission:workers.create');
+        Route::match(['PUT', 'PATCH'], 'workers/{id}', [App\Http\Controllers\Admin\WorkerController::class, 'update'])->name('workers.update')->middleware('permission:workers.edit');
+        Route::get('workers/{id}/edit', [App\Http\Controllers\Admin\WorkerController::class, 'edit'])->name('workers.edit')->middleware('permission:workers.edit');
 
-    
+        ////////////////  salary //////////////////////////////////////
 
-        ///////////////////////////////////////////////////////////////////
+        Route::delete('salary/bulk', [App\Http\Controllers\Admin\SalaryController::class, 'deleteBulk'])->name('salary.deleteBulk');
+        Route::get('salary/list', [App\Http\Controllers\Admin\SalaryController::class, 'list'])->name('salary.list')->middleware('permission:salary.view');
+        Route::post('salary', [App\Http\Controllers\Admin\SalaryController::class, 'store'])->name('salary.store')->middleware('permission:salary.create');
+        Route::delete('salary/{id}', [App\Http\Controllers\Admin\SalaryController::class, 'destroy'])->name('salary.destroy')->middleware('permission:salary.delete');
+        Route::get('salary', [App\Http\Controllers\Admin\SalaryController::class, 'index'])->name('salary.index')->middleware('permission:salary.view');
+        Route::get('salary/create', [App\Http\Controllers\Admin\SalaryController::class, 'create'])->name('salary.create')->middleware('permission:salary.create');
+        Route::match(['PUT', 'PATCH'], 'salary/{id}', [App\Http\Controllers\Admin\SalaryController::class, 'update'])->name('salary.update')->middleware('permission:salary.edit');
+        Route::get('salary/{id}/edit', [App\Http\Controllers\Admin\SalaryController::class, 'edit'])->name('salary.edit')->middleware('permission:salary.edit');
+
+        /////////////////////////////////////////////////////////////////////
         Route::delete('compain/bulk', [App\Http\Controllers\Admin\CompainController::class, 'deleteBulk'])->name('compain.deleteBulk');
         Route::get('compain/list', [App\Http\Controllers\Admin\CompainController::class, 'list'])->name('compain.list')->middleware('permission:compain.view');
         Route::post('compain', [App\Http\Controllers\Admin\CompainController::class, 'store'])->name('compain.store')->middleware('permission:compain.create');

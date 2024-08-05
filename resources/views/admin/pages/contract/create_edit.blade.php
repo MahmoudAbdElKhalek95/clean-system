@@ -64,7 +64,21 @@
                             @enderror
                         </div>
 
-                  
+                        <div class="mb-1 col-md-4  @error('mader_number') is-invalid @enderror">
+                            <label class="form-label">{{ __('contract.mader_number') }}</label>
+                            <input class="form-control" name="mader_number" type="text" value="{{ $item->mader_number ?? old('mader_number') }}">
+                            @error('mader_number')
+                            <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-1 col-md-4  @error('service_support') is-invalid @enderror">
+                            <label class="form-label">{{ __('contract.service_support') }}</label>
+                            <input class="form-control" name="service_support" type="text" value="{{ $item->service_support ?? old('service_support') }}">
+                            @error('service_support')
+                            <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
                       
                     </div>
                     <div class="row">

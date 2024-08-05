@@ -33,14 +33,14 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="mb-1 col-md-4  @error('name') is-invalid @enderror">
+                        <div class="mb-1 col-md-6  @error('name') is-invalid @enderror">
                             <label class="form-label">{{ __('service.name') }}</label>
                             <input class="form-control" name="name" type="text" value="{{ $item->name ?? old('name') }}">
                             @error('name')
                             <span class="error">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="mb-1 col-md-4  @error('type') is-invalid @enderror">
+                        <div class="mb-1 col-md-6  @error('type') is-invalid @enderror">
                             <label class="form-label">{{ __('service.type') }}</label>
                             <input class="form-control" name="type" type="text" value="{{ $item->type ?? old('type') }}">
                             @error('type')
@@ -48,14 +48,48 @@
                             @enderror
                         </div>
 
-                        <div class="mb-1 col-md-4  @error('status') is-invalid @enderror">
+                        {{--  <div class="mb-1 col-md-4  @error('status') is-invalid @enderror">
                             <label class="form-label">{{ __('service.status') }}</label>
                             <input class="form-control" name="status" type="text" value="{{ $item->status ?? old('status') }}">
                             @error('status')
                             <span class="error">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div>  --}}
 
+
+                        {{--  <div class="mb-1 col-md-4  @error('status') is-invalid @enderror">
+                            <div class="form-check">
+                               <br>
+                               <label class="form-check-label" for="status" style="margin-right: 10px;font-size: 25px;"> {{ __('service.status') }} </label>
+
+                                   <input class="form-check-input" type="checkbox" value="1" id="status" name="status" {{ isset($item) ? $item->status==1 ? 'checked' : '' : '' }} tabindex="3" style="height: 40px;width: 40px;" />
+                               </div>
+                           @error('status')
+                           <span class="error">{{ $message }}</span>
+                           @enderror
+                       </div>  --}}
+
+                       <hr>
+                       <div class="mb-1 col-md-6  @error('status') is-invalid @enderror">
+                            <div class="row">
+                                <div class="col-md-2">
+                                <label class="form-label">{{ __('service.status') }}</label>
+                                </div>
+                                <div class="col-md-3">
+                                  <input  type="radio" id="active" name="status" value="active">
+                                  <label   for="active"> فعال </label><br>
+                                </div>
+                                <div class="col-md-3">
+                                  <input   type="radio" id="not_active" name="status" value="not_active">
+                                  <label  for="not_active"> غير فعال  </label><br>
+                                </div>
+                       @error('status')
+                       <span class="error">{{ $message }}</span>
+                       @enderror
+                     </div>
+                    </div>
+
+                    
                     
 
                   

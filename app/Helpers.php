@@ -808,3 +808,36 @@ function send_whatsapp_message( $phone , $message  )
 
 }
 
+
+
+function app_time()
+{
+    $offset = (env("APP_DATE_OFFSET") * 24 * 60 * 60) ?? 0;
+    return (time() + $offset);
+}
+
+
+function start_of_week($date=null)
+{
+    if(!$date) $date = date("Y-m-d",app_time());
+    if(date("l",strtotime($date))== "Sunday")
+        return $date;
+    else{
+        $start = new DateTime($date);
+        $start->modify('Last Sunday');
+        return $start->format("Y-m-d");
+    }
+}
+
+function end_of_week($date=null)
+{
+    if(!$date) $date = date("Y-m-d",app_time());
+    if(date("l",strtotime($date))== "Thursday")
+        return $date;
+    else{
+        $start = new DateTime($date);
+        $start->modify('Next Thursday');
+        return $start->format("Y-m-d");
+    }
+}
+

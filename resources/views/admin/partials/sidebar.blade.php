@@ -90,6 +90,33 @@
                 </a>
             </li>
             @endcan
+
+            
+            @can('workers.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('workers.index'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('workers.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+
+            @can('salary.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('salary.index'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('salary.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('visit.report'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List">  تقرير  اداء المشرفين  </span>
+                </a>
+            </li>
+         
          
          
          

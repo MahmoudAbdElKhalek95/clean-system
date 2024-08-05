@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    <title>{{ config('app.name') }} | {{ __('service.plural') }}</title>
+    <title>{{ config('app.name') }} | {{ __('visit.plural') }}</title>
 @endsection
 @section('content')
     <div class="content-header row">
@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h1 class="bold mb-0 mt-1 text-dark">
                         <i data-feather="box" class="font-medium-2"></i>
-                        <span>{{ __('service.plural') }}</span>
+                        <span>{{ __('visit.plural') }}</span>
                     </h1>
                 </div>
             </div>
@@ -17,9 +17,9 @@
         <div class="content-header-right text-md-end col-md-6 col-12 d-md-block ">
             <div class="mb-1 breadcrumb-right">
                 <div class="dropdown">
-                    <a class="btn btn-sm btn-outline-primary me-1 waves-effect" href="{{ route('service.create') }}">
+                    <a class="btn btn-sm btn-outline-primary me-1 waves-effect" href="{{ route('visit.create') }}">
                         <i data-feather="plus"></i>
-                        <span class="active-sorting text-primary">{{ __('service.actions.create') }}</span>
+                        <span class="active-sorting text-primary">{{ __('visit.actions.create') }}</span>
                     </a>
                 </div>
             </div>
@@ -31,11 +31,12 @@
                 <table class="dt-multilingual table datatables-ajax">
                     <thead>
                     <tr>
-                        <th>{{ __('service.name') }}</th>
-                        <th>{{ __('service.type') }}</th>
-                        <th>{{ __('service.status') }}</th>
+                        <th>{{ __('visit.supervisior_name') }}</th>
+                        <th>{{ __('visit.visit_number') }}</th>
+                        <th>{{ __('visit_details.plural') }}</th>
 
-                        <th width="15%" class="text-center">{{ __('service.options') }}</th>
+
+                        <th width="15%" class="text-center">{{ __('visit.options') }}</th>
                     </tr>
                     </thead>
                 </table>
@@ -62,7 +63,7 @@
                 }
             },
             ajax: {
-                url: "{{ route('service.list') }}",
+                url: "{{ route('visit.report') }}",
                 data: function (d) {
                     d.name   = $('#filterForm #name').val();
                 }
@@ -72,9 +73,10 @@
             },
             columns: [
                 /*{data: 'DT_RowIndex', name: 'DT_RowIndex'},*/
-                {data: 'name', name: 'name'},
-                {data: 'type', name: 'type'},
-                {data: 'status_name', name: 'status_name'},
+                {data: 'user', name: 'user' ,orderable: false },
+                {data: 'visit_number', name: 'visit_number'},
+                {data: 'buttun', name: 'buttun' },
+
                 {data: 'actions',name: 'actions',orderable: false,searchable: false},
             ],
             columnDefs: [
@@ -82,11 +84,11 @@
                     "targets": -1,
                     "render": function (data, type, row) {
 
-
-                        var editUrl = '{{ route("service.edit", ":id") }}';
+                    
+                        var editUrl = '{{ route("visit.edit", ":id") }}';
                         editUrl = editUrl.replace(':id', row.id);
 
-                        var deleteUrl = '{{ route("service.destroy", ":id") }}';
+                        var deleteUrl = '{{ route("visit.destroy", ":id") }}';
                         deleteUrl = deleteUrl.replace(':id', row.id);
                         return `
                             <div class="dropdown">
@@ -95,13 +97,14 @@
                                 </button>
                                 <div class="dropdown-menu">
 
+                                
                                     <a class="dropdown-item" href="`+editUrl+`">
                                     <i data-feather="edit-2" class="font-medium-2"></i>
-                                        <span>{{ __('service.actions.edit') }}</span>
+                                        <span>{{ __('visit.actions.edit') }}</span>
                                     </a>
                                     <a class="dropdown-item delete_item" data-url="`+deleteUrl+`" href="#">
                                         <i data-feather="trash" class="font-medium-2"></i>
-                                            <span>{{ __('service.actions.delete') }}</span>
+                                            <span>{{ __('visit.actions.delete') }}</span>
                                     </a>
                                 </div>
                             </div>

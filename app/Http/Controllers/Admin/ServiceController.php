@@ -90,7 +90,10 @@ class ServiceController extends Controller
         $data = Service::select('*');
         return DataTables::of($data)
             ->addIndexColumn()
-           // ->rawColumns()
+            ->editColumn('status_name', function ($item) {
+                return $item->status == 'active' ? 'فعال' : ' غير فعال';
+            })
+            ->rawColumns(['status_name'])
             ->make(true);
     }
 

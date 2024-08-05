@@ -35,6 +35,9 @@
                         <th>{{ __('contract.number') }}</th>
                         <th>{{ __('contract.start_date') }}</th>
                         <th>{{ __('contract.end_date') }}</th>
+                        <th>{{ __('contract.mader_number') }}</th>
+                        <th>{{ __('contract.service_support') }}</th>
+
 
                         <th width="15%" class="text-center">{{ __('contract.options') }}</th>
                     </tr>
@@ -77,6 +80,9 @@
                 {data: 'number', name: 'number'},
                 {data: 'start_date', name: 'start_date'},
                 {data: 'end_date', name: 'end_date'},
+                {data: 'mader_number', name: 'mader_number'},
+                {data: 'service_support', name: 'service_support'},
+
                 {data: 'actions',name: 'actions',orderable: false,searchable: false},
             ],
             columnDefs: [

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'plural' => 'العقود',
+    'plural' => 'الرواتب',
     'singular' => 'قسم',
     'singular2' => 'قسم',
     'empty' => 'لا يوجد اقسام',
@@ -25,7 +25,7 @@ return [
         'updated' => 'تم تعديل قسم بنجاح .',
         'deleted' => 'تم حذف قسم بنجاح .',
         'restored' => 'تم استعادةقسم بنجاح .',
-        'deleted_bulk' => 'تم حذف العقود المحددة بنجاح .',
+        'deleted_bulk' => 'تم حذف الرواتب المحددة بنجاح .',
     ],
     'attributes' => [
         'name' => 'اسم قسم',
@@ -68,12 +68,14 @@ return [
     'class_number' => '  عدد الفصول  ',
     'pathromm_number' => '  عدد دورات المياه  ',
     'spcilization' => '  التصنيف   ',
-    'number' => ' رقم العقد  ',
+    'type' => ' نوع الماده   ',
     'name' => '  الاسم    ',
-    'start_date' => '  تاريخ البدايه   ',
-    'end_date' => '  تاريخ النهايه   ',
-    'mader_number' => '  رقم  المجضر   ',
-    'service_support' => '   موفر الخدمه   ',
+    'status' => '   الحاله   ',
+    'worker_id' => '   الغامل   ',
+    'month' => '   الشعر   ',
+    'salary' => '   الراتب   ',
+
+
 
 
 
