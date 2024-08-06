@@ -39,6 +39,14 @@ class SalaryController extends Controller
         return view('admin.pages.salary.show', get_defined_vars());
     }
 
+    public function print($id)
+    {
+      //  $expense =  Salary::findOrFail($id);
+        $item = Salary::findOrFail($id);
+        return view('admin.pages.salary.print', get_defined_vars());
+    }
+
+
     public function destroy($id)
     {
         $this->userpermission();
@@ -91,7 +99,12 @@ class SalaryController extends Controller
             ->AddColumn('worker', function ($item) {
                 return $item->worker ? $item->worker->name : '';
             })
-            ->rawColumns([ 'worker' ])
+            ->AddColumn('buttun', function ($item) {
+             
+                return  "<a class='btn btn-success'  href ='".route('salary.print' , $item->id )."'> طباعه </a> " ;
+
+            })
+            ->rawColumns([ 'worker' , 'buttun' ])
             ->make(true);
     }
 

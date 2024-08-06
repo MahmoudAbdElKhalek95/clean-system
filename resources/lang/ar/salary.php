@@ -71,19 +71,9 @@ return [
     'type' => ' نوع الماده   ',
     'name' => '  الاسم    ',
     'status' => '   الحاله   ',
-    'worker_id' => '   الغامل   ',
-    'month' => '   الشعر   ',
+    'worker_id' => '   العامل   ',
+    'month' => '   الشهر   ',
     'salary' => '   الراتب   ',
-
-
-
-
-
-
-
-
-
-
 
     'project' => 'المشروع',
     'xxxxxx' => 'xxxxxx',

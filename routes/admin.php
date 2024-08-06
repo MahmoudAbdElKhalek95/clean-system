@@ -183,7 +183,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::get('workers/{id}/edit', [App\Http\Controllers\Admin\WorkerController::class, 'edit'])->name('workers.edit')->middleware('permission:workers.edit');
 
         ////////////////  salary //////////////////////////////////////
-
+        Route::get('salary/{id}/print', [App\Http\Controllers\Admin\SalaryController::class, 'print'])->name('salary.print')->middleware('permission:salary.view');
         Route::delete('salary/bulk', [App\Http\Controllers\Admin\SalaryController::class, 'deleteBulk'])->name('salary.deleteBulk');
         Route::get('salary/list', [App\Http\Controllers\Admin\SalaryController::class, 'list'])->name('salary.list')->middleware('permission:salary.view');
         Route::post('salary', [App\Http\Controllers\Admin\SalaryController::class, 'store'])->name('salary.store')->middleware('permission:salary.create');

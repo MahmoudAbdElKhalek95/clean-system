@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    <title>{{ config('app.name') }} | {{ __('visit.plural') }}</title>
+    <title>{{ config('app.name') }} |  تقرير اداء المشرف </title>
 @endsection
 @section('content')
     <div class="content-header row">
@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h1 class="bold mb-0 mt-1 text-dark">
                         <i data-feather="box" class="font-medium-2"></i>
-                        <span>{{ __('visit.plural') }}</span>
+                        <span> تقرير اداء المشرف </span>
                     </h1>
                 </div>
             </div>
@@ -17,10 +17,10 @@
         <div class="content-header-right text-md-end col-md-6 col-12 d-md-block ">
             <div class="mb-1 breadcrumb-right">
                 <div class="dropdown">
-                    <a class="btn btn-sm btn-outline-primary me-1 waves-effect" href="{{ route('visit.create') }}">
-                        <i data-feather="plus"></i>
-                        <span class="active-sorting text-primary">{{ __('visit.actions.create') }}</span>
-                    </a>
+                  
+
+                    @include('admin.pages.visit.filter')
+
                 </div>
             </div>
         </div>
@@ -32,8 +32,10 @@
                     <thead>
                     <tr>
                         <th>{{ __('visit.supervisior_name') }}</th>
-                        <th>{{ __('visit.visit_number') }}</th>
-                        <th>{{ __('visit_details.plural') }}</th>
+                        <th> عدد الزيارات في اليوم  </th>
+                        <th>     عدد الزيارات في الاسبوع   </th>
+                        <th>     عدد الزيارات في الشهر   </th>
+                        <th>     عدد الزيارات في العام   </th>
 
 
                         <th width="15%" class="text-center">{{ __('visit.options') }}</th>
@@ -66,6 +68,8 @@
                 url: "{{ route('visit.report') }}",
                 data: function (d) {
                     d.name   = $('#filterForm #name').val();
+                    d.user_id   = $('#filterForm #user_id').val();
+
                 }
             },
             drawCallback: function (settings) {
@@ -74,9 +78,10 @@
             columns: [
                 /*{data: 'DT_RowIndex', name: 'DT_RowIndex'},*/
                 {data: 'user', name: 'user' ,orderable: false },
-                {data: 'visit_number', name: 'visit_number'},
-                {data: 'buttun', name: 'buttun' },
-
+                {data: 'day_visit_count', name: 'day_visit_count'},
+                {data: 'week_visit_count', name: 'week_visit_count'},
+                {data: 'month_visit_count', name: 'month_visit_count'},
+                {data: 'year_visit_count', name: 'year_visit_count'},
                 {data: 'actions',name: 'actions',orderable: false,searchable: false},
             ],
             columnDefs: [
@@ -98,14 +103,14 @@
                                 <div class="dropdown-menu">
 
                                 
-                                    <a class="dropdown-item" href="`+editUrl+`">
+                                    {{--  <a class="dropdown-item" href="`+editUrl+`">
                                     <i data-feather="edit-2" class="font-medium-2"></i>
                                         <span>{{ __('visit.actions.edit') }}</span>
                                     </a>
                                     <a class="dropdown-item delete_item" data-url="`+deleteUrl+`" href="#">
                                         <i data-feather="trash" class="font-medium-2"></i>
                                             <span>{{ __('visit.actions.delete') }}</span>
-                                    </a>
+                                    </a>  --}}
                                 </div>
                             </div>
                             `;

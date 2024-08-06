@@ -175,6 +175,7 @@ class VisitController extends Controller
         }
 
 
+        
         return view('admin.pages.visit.report', get_defined_vars());
 
     }

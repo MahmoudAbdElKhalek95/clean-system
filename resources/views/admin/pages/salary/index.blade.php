@@ -34,6 +34,8 @@
                         <th>{{ __('salary.worker_id') }}</th>
                         <th>{{ __('salary.month') }}</th>
                         <th>{{ __('salary.salary') }}</th>
+                        <th> طباعه  </th>
+
 
                         <th width="15%" class="text-center">{{ __('salary.options') }}</th>
                     </tr>
@@ -75,6 +77,9 @@
                 {data: 'worker', name: 'worker'},
                 {data: 'month', name: 'month'},
                 {data: 'salary', name: 'salary'},
+                {data: 'buttun', name: 'buttun'},
+
+                
 
                 {data: 'actions',name: 'actions',orderable: false,searchable: false},
             ],
