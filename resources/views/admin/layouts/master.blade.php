@@ -64,13 +64,13 @@
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">
 
-            <li class="nav-item d-none d-lg-block">
+            {{--  <li class="nav-item d-none d-lg-block">
                 <select name="archive_id" id="main_archive_id" class="form-control ajax_select2 extra_field" data-ajax--url="{{ route('archives.select') }}" data-ajax--cache="true" >
                     @if(session()->has('activeArchive'))
                         <option value="{{ session('activeArchive') }}" selected> {{ session('activeArchiveName') }} </option>
                     @endif
                 </select>
-            </li>
+            </li>  --}}
             <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
             <li class="nav-item dropdown dropdown-user">
                 <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -267,7 +267,6 @@
             $('#send_whats').modal('show');
              $.ajax({
                 type:'POST',
-                url:"{{ route('whatsapps.sended') }}",
                 data:{id:itemId,category_id:category_id,percent:percent,percent2:percent2,type:type},
                 success:function(data){
                     $('#remainNumber').text(data);
@@ -283,7 +282,6 @@
             var main_archive_id = $(this).val();
             $.ajax({
                 type:'GET',
-                url:"{{ route('changeArchive') }}",
                 data:{main_archive_id:main_archive_id,pure_select:true},
                 success:function(data){
                 toastr['success'](null, 'تم الحديث بنجاح', {

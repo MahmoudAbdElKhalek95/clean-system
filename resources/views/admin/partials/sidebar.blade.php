@@ -110,6 +110,24 @@
             </li>
             @endcan
 
+            @can('backage.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('backage.index'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('backage.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+
+            @can('backage_details.view')
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('backage_details.index'  ) }} ">
+                    <i data-feather="columns"></i>
+                    <span class="menu-item text-truncate" data-i18n="List"> {{ __('backage_details.plural') }} </span>
+                </a>
+            </li>
+            @endcan
+
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('visit.report'  ) }} ">
                     <i data-feather="columns"></i>
